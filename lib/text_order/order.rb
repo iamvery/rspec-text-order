@@ -1,5 +1,9 @@
+require 'text_order/position'
+
 module TextOrder
   class Order
+    include Position
+
     attr_reader :matcher, :text
 
     def initialize(matcher, text)
