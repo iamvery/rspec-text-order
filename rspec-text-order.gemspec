@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "display_order/version"
+require "text_order/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rspec-display-order'
-  spec.version       = DisplayOrder::VERSION
+  spec.name          = 'rspec-text-order'
+  spec.version       = TextOrder::VERSION
   spec.authors       = ['Jay Hayes']
   spec.email         = ['ur@iamvery.com']
 
-  spec.summary       = %q{An RSpec matcher that tests the display order on the page.}
-  spec.description   = %q{An RSpec matcher that tests the display order on the page.}
-  spec.homepage      = 'https://github.com/iamvery/rspec-display-order'
+  spec.summary       = %q{An RSpec matcher that tests the text order on the page.}
+  spec.description   = %q{An RSpec matcher that tests the text order on the page.}
+  spec.homepage      = 'https://github.com/iamvery/rspec-text-order'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
