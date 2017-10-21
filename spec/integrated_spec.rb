@@ -1,3 +1,4 @@
+require 'capybara/rspec'
 require 'text_order/rspec'
 
 RSpec.describe 'RSpec matchers', type: :feature do
@@ -18,6 +19,16 @@ RSpec.describe 'RSpec matchers', type: :feature do
   describe 'between' do
     it 'detects value both before and after expected text' do
       expect(STRING).to include_text('middle').before('last').after('first')
+    end
+  end
+
+  describe 'capybara page content' do
+    App = ->(*) { [200, {}, ['<div>first</div><div>middle</div><div>last</div>']] }
+    Capybara.app = App
+
+    it 'is useful in combination with capybara to determine page content ordering' do
+      visit '/'
+      expect(page.text).to include_text('middle').before('last').after('first')
     end
   end
 end
