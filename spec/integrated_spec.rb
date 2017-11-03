@@ -19,6 +19,7 @@ RSpec.describe 'RSpec matchers', type: :feature do
   describe 'between' do
     it 'detects value both before and after expected text' do
       expect(STRING).to include_text('middle').before('last').after('first')
+      expect(STRING).to include_text('middle').after('first').before('last')
     end
   end
 
