@@ -14,6 +14,10 @@ module TextOrder
       super or %{expected "#{text}" not to appear before "#{expected}" in "#{actual}"}
     end
 
+    def after(text)
+      After.new(self, text)
+    end
+
     private
 
     def is_before?(actual)
