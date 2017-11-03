@@ -61,3 +61,7 @@ This is roughly equivalent to:
 expect(page.text).to include_text('Barbara').before('Charlie')
 expect(page.text).to include_text('Barbara').after('Anne')
 ```
+
+## Attribution
+
+Thank you @phillipgray for inspiring this project with his contributions to an app we worked on together :heart:
