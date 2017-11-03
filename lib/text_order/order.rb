@@ -20,19 +20,20 @@ module TextOrder
     end
 
     def matches?(actual)
-      @result = matcher.matches?(actual)
+      @matched = matcher.matches?(actual)
     end
 
     def failure_message
-      matcher.failure_message unless result
+      matcher.failure_message unless matched?
     end
 
     def failure_message_when_negated
-      matcher.failure_message_when_negated unless result
+      matcher.failure_message_when_negated unless matched?
     end
 
     private
 
-    attr_reader :result
+    attr_reader :matched
+    alias_method :matched?, :matched
   end
 end
