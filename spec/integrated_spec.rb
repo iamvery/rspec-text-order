@@ -31,5 +31,12 @@ RSpec.describe 'RSpec matchers', type: :feature do
       visit '/'
       expect(page.text).to include_text('middle').before('last').after('first')
     end
+
+    it 'provides some useful shortcut matchers' do
+      visit '/'
+
+      expect('first').to appear_before('middle')
+      expect('last').to appear_after('middle')
+    end
   end
 end
