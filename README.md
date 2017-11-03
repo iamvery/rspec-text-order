@@ -64,4 +64,4 @@ expect(page.text).to include_text('Barbara').after('Anne')
 
 ## Attribution
 
-Thank you @phillipgray for inspiring this project with his contributions to an app we worked on together :heart:
+Thank you https://github.com/phillipgray for inspiring this project with his contributions to an app we worked on together :heart:
