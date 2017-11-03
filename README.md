@@ -34,10 +34,12 @@ RSpec.describe 'text order matchers' do
 end
 ```
 
+### Capybara
+
 A common use case for this type of matcher is to ensure text is presented in a certain order in an acceptance test.
 For that reason, there are also a couple of shortcut matchers included for convenience.
 
-```
+```ruby
 # this is a capybara-enabled acceptance test
 RSpec.describe 'name page', type: :feature do
   it 'displays names in alphabetical order' do
@@ -51,4 +53,11 @@ RSpec.describe 'name page', type: :feature do
     expect('Barbara').to appear_after('Anne')
   end
 end
+```
+
+This is roughly equivalent to:
+
+```ruby
+expect(page.text).to include_text('Barbara').before('Charlie')
+expect(page.text).to include_text('Barbara').after('Anne')
 ```
