@@ -13,8 +13,8 @@ RSpec.describe TextOrder::Before do
 
   describe '#failure_message' do
     it 'returns positional failure' do
-      matcher = TextOrder::Matcher.new('first')
-      before = described_class.new(matcher, 'last')
+      matcher = TextOrder::Matcher.new('last')
+      before = described_class.new(matcher, 'first')
       before.matches?('first last')
 
       expect(before.failure_message).to eq(
@@ -33,8 +33,8 @@ RSpec.describe TextOrder::Before do
 
   describe '#failure_message_when_negated' do
     it 'returns positional negated failure' do
-      matcher = TextOrder::Matcher.new('last')
-      before = described_class.new(matcher, 'first')
+      matcher = TextOrder::Matcher.new('first')
+      before = described_class.new(matcher, 'last')
       before.matches?('first last')
 
       expect(before.failure_message_when_negated).to eq(

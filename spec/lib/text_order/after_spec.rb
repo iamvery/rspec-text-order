@@ -13,8 +13,8 @@ RSpec.describe TextOrder::After do
 
   describe '#failure_message' do
     it 'returns positional failure' do
-      matcher = TextOrder::Matcher.new('last')
-      after = described_class.new(matcher, 'first')
+      matcher = TextOrder::Matcher.new('first')
+      after = described_class.new(matcher, 'last')
       after.matches?('first last')
 
       expect(after.failure_message).to eq(
@@ -33,8 +33,8 @@ RSpec.describe TextOrder::After do
 
   describe '#failure_message_when_negated' do
     it 'returns positional negated failure' do
-      matcher = TextOrder::Matcher.new('first')
-      after = described_class.new(matcher, 'last')
+      matcher = TextOrder::Matcher.new('last')
+      after = described_class.new(matcher, 'first')
       after.matches?('first last')
 
       expect(after.failure_message_when_negated).to eq(

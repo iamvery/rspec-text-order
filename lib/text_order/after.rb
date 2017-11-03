@@ -7,11 +7,11 @@ module TextOrder
     end
 
     def failure_message
-      super or %{expected "#{text}" to appear after "#{expected}" in "#{actual}"}
+      super or %{expected "#{expected}" to appear after "#{text}" in "#{actual}"}
     end
 
     def failure_message_when_negated
-      super or %{expected "#{text}" not to appear after "#{expected}" in "#{actual}"}
+      super or %{expected "#{expected}" not to appear after "#{text}" in "#{actual}"}
     end
 
     def before(text)
