@@ -1,9 +1,8 @@
-require 'text_order/position'
+require 'text_order/after'
+require 'text_order/before'
 
 module TextOrder
   class Matcher
-    include Position
-
     attr_reader :actual, :expected
 
     def initialize(expected)
@@ -21,6 +20,14 @@ module TextOrder
 
     def failure_message_when_negated
       %{expected "#{actual}" not to include the text "#{expected}"}
+    end
+
+    def after(text)
+      After.new(self, text)
+    end
+
+    def before(text)
+      Before.new(self, text)
     end
   end
 end
