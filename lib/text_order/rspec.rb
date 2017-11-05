@@ -1,10 +1,20 @@
 require 'text_order/matcher'
+require 'rspec/matchers/built_in/compound'
 
 module TextOrder
   module RSpec
     module Matchers
       def include_text(expected)
         Matcher.new(expected)
+      end
+
+      def include_in_order(*texts)
+        texts
+          .each_cons(2)
+          .map { |(left, right)| Matcher.new(left).before(right) }
+          .reduce { |m1, m2|
+            ::RSpec::Matchers::BuiltIn::Compound::And.new(m1, m2)
+          }
       end
     end
   end
