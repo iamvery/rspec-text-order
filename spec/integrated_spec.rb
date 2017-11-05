@@ -23,6 +23,12 @@ RSpec.describe 'RSpec matchers', type: :feature do
     end
   end
 
+  describe 'in order' do
+    it 'detects values in order in expected text' do
+      expect(STRING).to include_in_order('first', 'middle', 'last')
+    end
+  end
+
   describe 'capybara page content' do
     App = ->(*) { [200, {}, ['<div>first</div><div>middle</div><div>last</div>']] }
     Capybara.app = App
